@@ -1,14 +1,15 @@
-﻿// Copyright (c) .NET Foundation. All rights reserved.
+// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using Microsoft.AspNetCore.Http;
+using System;
+using System.Net.Mime;
+using Microsoft.AspNetCore.Blazor.Builder;
 using Microsoft.AspNetCore.Blazor.Server;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Net.Http.Headers;
-using System.Net.Mime;
-using System;
 
 namespace Microsoft.AspNetCore.Builder
 {
@@ -18,6 +19,17 @@ namespace Microsoft.AspNetCore.Builder
     public static class BlazorAppBuilderExtensions
     {
         const string DevServerApplicationName = "dotnet-blazor";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="TProgram"></typeparam>
+        /// <param name="app"></param>
+        /// <param name="configure"></param>
+        public static void UseServerSideBlazor<TProgram>(this IApplicationBuilder app, Action<IBlazorApplicationBuilder> configure)
+        {
+            // Intentionally empty for now.
+        }
 
         /// <summary>
         /// Configures the middleware pipeline to work with Blazor.

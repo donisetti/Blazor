@@ -65,7 +65,7 @@ namespace Microsoft.AspNetCore.Blazor.Browser.Rendering
             // (otherwise the logged exception will come from UpdateDisplay instead of here)
             // When implementing support for out-of-process runtimes, we'll need to call this
             // asynchronously and ensure we surface any exceptions correctly.
-            ((IJSInProcessRuntime)JSRuntime.Current).Invoke<object>(
+            var result = ((IJSInProcessRuntime)JSRuntime.Current).Invoke<object>(
                 "Blazor._internal.attachRootComponentToElement",
                 _browserRendererId,
                 domElementSelector,
